@@ -30,7 +30,7 @@ const onSubmit = async (data) => {
       Object.entries(data).filter(([_, value]) => value !== '')
     );
 
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/cars/filter-cars`, {
+    const res = await axios.get(`https://api-tn33-cars.onrender.com/cars/filter-cars`, {
       params: filteredData, // Axios will handle query string encoding
     });
 
