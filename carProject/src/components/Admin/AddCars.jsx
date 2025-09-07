@@ -108,7 +108,7 @@ export default function CarAdminDashboard() {
   // }, []);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/cars/get-cars`, { withCredentials: true }) // if session needed
+    axios.get(`https://api-tn33-cars.onrender.com/cars/get-cars`, { withCredentials: true }) // if session needed
       .then((res) => {
         console.log("Fetched cars:", res.data);
         setCars(res.data);
@@ -173,10 +173,10 @@ export default function CarAdminDashboard() {
       let url, method;
 
       if (editingCar) {
-        url = `${import.meta.env.VITE_API_URL}/cars/update-car/${editingCar._id}`;
+        url = `https://api-tn33-cars.onrender.com/cars/update-car/${editingCar._id}`;
         method = "PUT";
       } else {
-        url = `${import.meta.env.VITE_API_URL}/cars/add-car`;
+        url = `https://api-tn33-cars.onrender.com/cars/add-car`;
         method = "POST";
       }
 
@@ -214,7 +214,7 @@ export default function CarAdminDashboard() {
   const handleDelete = async (carId) => {
     if (window.confirm("Are you sure you want to delete this car?")) {
       try {
-        await axios.delete(`${import.meta.env.VITE_API_URL}/cars/delete-car/${carId}`, { withCredentials: true });
+        await axios.delete(`https://api-tn33-cars.onrender.com/cars/delete-car/${carId}`, { withCredentials: true });
         setCars(cars.filter((car) => car._id !== carId));
         alert("Car deleted successfully!");
       } catch (error) {
@@ -227,7 +227,7 @@ export default function CarAdminDashboard() {
 const handleToggleSoldOut = async (car) => {
   try {
     const res = await axios.put(
-      `${import.meta.env.VITE_API_URL}/cars/update-car/${car._id}`,
+      `https://api-tn33-cars.onrender.com/cars/update-car/${car._id}`,
       { soldOut: !car.soldOut }, // 👈 only send soldOut
       { withCredentials: true }
     );
