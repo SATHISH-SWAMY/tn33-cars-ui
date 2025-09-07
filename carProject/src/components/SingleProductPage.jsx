@@ -79,7 +79,7 @@ const handleTestDriverSubmit = async () => {
 
     // ---------- Razorpay flow ----------
     const orderRes = await axios.post(
-      `${import.meta.env.VITE_API_URL}/payments/razorpay/create-order`,
+      `https://api-tn33-cars.onrender.com/payments/razorpay/create-order`,
       { amount: 50000, formData: testDriveData },
       {
         headers: {
@@ -104,7 +104,7 @@ const handleTestDriverSubmit = async () => {
         console.log("Payment Success:", response);
         try {
           await axios.post(
-            `${import.meta.env.VITE_API_URL}/payments/razorpay/verify-payment`,
+            `https://api-tn33-cars.onrender.com/payments/razorpay/verify-payment`,
             response,
             {
               headers: {
