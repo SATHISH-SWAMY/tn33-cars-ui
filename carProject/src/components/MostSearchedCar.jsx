@@ -20,7 +20,7 @@ function MostSearchedCar() {
   // Fetch cars from backend
   useEffect(() => {
      setLoading(true)
-    axios.get(`${import.meta.env.VITE_API_URL}/cars/get-cars`,{ withCredentials: true })
+    axios.get(`https://api-tn33-cars.onrender.com/cars/get-cars`,{ withCredentials: true })
       .then((res) => {
         console.log("Fetched cars:", res.data);
          setCars(res.data);
