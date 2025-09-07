@@ -55,7 +55,7 @@ function Header() {
 const handleLogin = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
+    const res = await axios.post(`https://api-tn33-cars.onrender.com/auth/login`, {
       email: form.email,
       password: form.password,
     });
@@ -67,7 +67,7 @@ const handleLogin = async (e) => {
     alert("Login successful!");
 
     // ✅ Fetch current user details
-    const userRes = await axios.get(`${import.meta.env.VITE_API_URL}/auth/user`, {
+    const userRes = await axios.get(`https://api-tn33-cars.onrender.com/auth/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -89,7 +89,7 @@ const handleLogin = async (e) => {
 
         e.preventDefault();
         try {
-            const res = await axios.post( `${import.meta.env.VITE_API_URL}/auth/register`, {
+            const res = await axios.post( `https://api-tn33-cars.onrender.com/auth/register`, {
                 fullName: form.fullName,
                 email: form.email,
                 phone: form.phone,
