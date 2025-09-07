@@ -75,7 +75,7 @@ const onSubmit = async (data) => {
 
   try {
     // 1. Create order on backend
-    const orderRes = await fetch(`${import.meta.env.VITE_API_URL}/payments/razorpay/create-order`, {
+    const orderRes = await fetch(`https://api-tn33-cars.onrender.com/payments/razorpay/create-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount: 50000 }) // amount in paisa
@@ -97,7 +97,7 @@ const onSubmit = async (data) => {
         console.log("✅ Payment Success:", response);
 
         // 3. Send payment info to backend to save transaction
-        const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/payments/razorpay/verify-payment`, {
+        const verifyRes = await fetch(`https://api-tn33-cars.onrender.com/payments/razorpay/verify-payment`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(response)
@@ -123,7 +123,7 @@ const onSubmit = async (data) => {
         // Add Razorpay payment ID to the form
         formData.append("payment_id", response.razorpay_payment_id);
 
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/saleForm/oldcars`, {
+        const res = await fetch(`https://api-tn33-cars.onrender.com/saleForm/oldcars`, {
           method: "POST",
           body: formData,
         });
