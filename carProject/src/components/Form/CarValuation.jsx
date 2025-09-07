@@ -72,7 +72,7 @@ useEffect(() => {
     if (paymentMethod === "razorpay") {
       // ---------- Razorpay flow ----------
       const orderRes = await axios.post(
-        `${import.meta.env.VITE_API_URL}/payments/razorpay/create-order`,
+        `https://api-tn33-cars.onrender.com/payments/razorpay/create-order`,
         { amount: 50000 }, // amount in paisa
         { headers: { "Content-Type": "application/json" } }
       );
@@ -91,7 +91,7 @@ useEffect(() => {
           console.log("Payment Success:", response);
           try {
             await axios.post(
-              `${import.meta.env.VITE_API_URL}/payments/razorpay/verify-payment`,
+              `https://api-tn33-cars.onrender.com/payments/razorpay/verify-payment`,
               response,
               { headers: { "Content-Type": "application/json" } }
             );
@@ -114,7 +114,7 @@ useEffect(() => {
     else if (paymentMethod === "phonepe") {
       // ---------- PhonePe flow ----------
       const orderRes = await axios.post(
-        `${import.meta.env.VITE_API_URL}/payments/phonepe/create-order`,
+        `https://api-tn33-cars.onrender.com/payments/phonepe/create-order`,
         { amount: 100 }, // amount in paisa
         { headers: { "Content-Type": "application/json" } }
       );
