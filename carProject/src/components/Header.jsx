@@ -25,6 +25,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Login } from './login/Login';
 import axios from 'axios';
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 function Header() {
 
@@ -110,7 +112,7 @@ const handleLogin = async (e) => {
         setIsSignedIn(false);
     };
     return (
-        <div className='flex justify-between items-center  shadow-sm px-10 pr-16' >
+        <div className='flex justify-between items-center shadow-sm px-4 sm:px-10 py-3' >
             <img src='/logo.jpg' width={100} height={50} />
             {/* <NavigationMenu>
                 <NavigationMenuList>
@@ -142,7 +144,7 @@ const handleLogin = async (e) => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu> */}
-            <div>
+            <div className="hidden md:flex items-center gap-6">
                 <NavigationMenu>
                     <NavigationMenuList>
 
@@ -223,6 +225,7 @@ const handleLogin = async (e) => {
 
 
             </div>
+            <div className="flex items-center gap-3">
             {isSignedIn ? (
                 // ✅ If user is signed in, show avatar + dropdown
                 <div className="flex items-center gap-4">
@@ -340,6 +343,32 @@ const handleLogin = async (e) => {
                     </DialogContent>
                 </Dialog>
             )}
+
+            {/* Mobile Menu Trigger */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger>
+              <Menu className="w-7 h-7 text-gray-700" />
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64 sm:w-80 p-6">
+              <nav className="flex flex-col gap-4 text-sm">
+                <a href="/" className="font-medium">Home</a>
+                <a href="/AllCarLists" className="font-medium">All Cars</a>
+                <a href="/BuyNewCar" className="font-medium">Buy a Car</a>
+                <a href="/SaleForm" className="font-medium">Sell Your Car</a>
+                <a href="/CarValuation" className="font-medium">Car Valuation</a>
+                <a href="/testDriveForm" className="font-medium">Book a Test Drive</a>
+                <a href="/SaleForm" className="font-medium">Service History</a>
+                <a href="/SaleForm" className="font-medium">Car Loan</a>
+                <a href="/SaleForm" className="font-medium">Exchange Offer</a>
+                <a href="/SaleForm" className="font-medium">Insurance</a>
+                <a href="/SaleForm" className="font-medium">RTO Services</a>
+                <a href="/SaleForm" className="font-medium">Detailing & Coating</a>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+            </div>
 
         </div>
     )
