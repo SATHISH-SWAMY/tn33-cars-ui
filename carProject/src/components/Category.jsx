@@ -1,4 +1,32 @@
-  <div className="mt-20 px-4 sm:px-8 lg:px-20 max-w-[1640px] mx-auto">
+import React, { useState } from 'react'
+import CarsData from './Shared/CarsData'
+import Autoplay from "embla-carousel-autoplay"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Link } from 'react-router'
+
+function Category() {
+
+  const [activeTab, setActiveTab] = useState('buy'); // or 'buy'
+  const plugin = React.useRef(Autoplay({ delay: 3000, stopOnInteraction: false }))
+
+
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    carModel: '',
+    price: '',
+  });
+
+  return (
+   <div className="mt-20 px-4 sm:px-8 lg:px-20 max-w-[1640px] mx-auto">
   {/* Tab Switcher */}
   <div className="bg-white rounded-xl shadow-lg p-6 mb-10">
     <div className="relative w-full sm:w-[500px] md:w-[660px] h-14 sm:h-16 grid grid-cols-2 bg-gray-100 rounded-lg p-1 mx-auto mb-6">
@@ -130,3 +158,8 @@
     </div>
 </div>
 </div>
+
+  )
+}
+
+export default Category
